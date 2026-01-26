@@ -1,14 +1,14 @@
 using System.Collections;
 using UnityEngine;
 
-public class ColorFlashFeedback : MonoBehaviour
+public class ColorFlashFeedback : MonoBehaviour, IFeedback
 {
     private Coroutine _coroutine;
     
     [SerializeField] private SpriteRenderer _spriteRenderer;
     [SerializeField] private Color _flashColor;
 
-    public void Play()
+    public void Play(ClickInfo clickInfo)
     {
         if (_coroutine != null)
         {
