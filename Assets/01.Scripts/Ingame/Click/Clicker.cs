@@ -24,7 +24,16 @@ public class Clicker : MonoBehaviour
         if (hit == true)
         {
             Clickable clickable = hit.collider.GetComponent<Clickable>();
-            clickable?.OnClick();
+            // 누가 클릭했는지             (ManualClick, AutoClick)
+            // 어느정도의 강도로 클릭했는지 (int)
+
+            ClickInfo clickInfo = new ClickInfo
+            {
+                ClickType = EClickType.Manual,
+                Damage = 10,
+            };
+            
+            clickable?.OnClick(clickInfo);
         }
     }
 }
