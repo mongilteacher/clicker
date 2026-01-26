@@ -158,17 +158,33 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 983791490056308954, guid: 75f9e44287c9e4e4898257fce363d1c9, type: 3}
+      propertyPath: _squashDuration
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 983791490056308954, guid: 75f9e44287c9e4e4898257fce363d1c9, type: 3}
+      propertyPath: _stretchDuration
+      value: 0.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 6201791030262719243, guid: 75f9e44287c9e4e4898257fce363d1c9, type: 3}
+      propertyPath: m_Size.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6201791030262719243, guid: 75f9e44287c9e4e4898257fce363d1c9, type: 3}
+      propertyPath: m_Size.y
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 6652898311174458766, guid: 75f9e44287c9e4e4898257fce363d1c9, type: 3}
       propertyPath: m_Name
       value: ClickTarget
       objectReference: {fileID: 0}
     - target: {fileID: 7685699000472540441, guid: 75f9e44287c9e4e4898257fce363d1c9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.46
+      value: -3
       objectReference: {fileID: 0}
     - target: {fileID: 7685699000472540441, guid: 75f9e44287c9e4e4898257fce363d1c9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.27
+      value: -0.3
       objectReference: {fileID: 0}
     - target: {fileID: 7685699000472540441, guid: 75f9e44287c9e4e4898257fce363d1c9, type: 3}
       propertyPath: m_LocalPosition.z
@@ -477,6 +493,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &784425729
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 784425730}
+  m_Layer: 0
+  m_Name: ---------------------------
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &784425730
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 784425729}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1149582850
 GameObject:
   m_ObjectHideFlags: 0
@@ -563,7 +610,7 @@ GameObject:
   - component: {fileID: 1470506013}
   - component: {fileID: 1470506012}
   m_Layer: 0
-  m_Name: "ChatGPT Image 2026\uB144 1\uC6D4 26\uC77C \uC624\uD6C4 05_06_18_0"
+  m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -696,10 +743,11 @@ SceneRoots:
   m_Roots:
   - {fileID: 519420032}
   - {fileID: 619394802}
+  - {fileID: 784425730}
+  - {fileID: 1470506013}
+  - {fileID: 300590860}
   - {fileID: 1149582851}
-  - {fileID: 63995171}
   - {fileID: 1355435548}
   - {fileID: 420116362}
+  - {fileID: 63995171}
   - {fileID: 2061983136}
-  - {fileID: 300590860}
-  - {fileID: 1470506013}

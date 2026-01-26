@@ -27,11 +27,12 @@ public class ScaleTweeningFeedback : MonoBehaviour, IFeedback
     public void Play(ClickInfo clickInfo)
     {
         Transform t = _owner.transform;
-        t.DOKill(true);
+        t.DOKill();
+
+        // 1) 눌리는 느낌: 즉시 적용 (연속 클릭 시 끊김 방지)
+        t.localScale = new Vector3(_squashScaleX, _squashScaleY, 1f);
 
         Sequence seq = DOTween.Sequence();
-        // 1) 눌리는 느낌: X 넓어지고 Y 찌그러짐
-        seq.Append(t.DOScale(new Vector3(_squashScaleX, _squashScaleY, 1f), _squashDuration).SetEase(_squashEase));
         // 2) 튀어오르는 느낌: X 좁아지고 Y 늘어남
         seq.Append(t.DOScale(new Vector3(_stretchScaleX, _stretchScaleY, 1f), _stretchDuration).SetEase(_stretchEase));
         // 3) 원래 크기로 복귀
