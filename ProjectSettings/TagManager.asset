@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 3
   tags:
   - Clickable
+  - Missile
+  - Target
   layers:
   - Default
   - TransparentFX
@@ -50,6 +52,9 @@ TagManager:
     locked: 0
   - name: ClickTarget
     uniqueID: 3506161217
+    locked: 0
+  - name: MiddleFX
+    uniqueID: 3675346593
     locked: 0
   - name: Floater
     uniqueID: 996779933

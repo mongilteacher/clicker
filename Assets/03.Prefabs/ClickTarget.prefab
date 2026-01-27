@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 897012911925316299}
   - component: {fileID: 680506456115728613}
   - component: {fileID: 8831158449534965601}
+  - component: {fileID: 9115673132428217603}
   m_Layer: 6
   m_Name: ClickTarget
   m_TagString: Clickable
@@ -85,8 +86,8 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -788806079
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 21300000, guid: f716fe81ed9a4df4cbf3bbc844f5493a, type: 3}
@@ -415,3 +416,16 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &9115673132428217603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6652898311174458766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93ed4ae840cc3be4797950b38d80e797, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::JellyDropFeedback
+  Offset: {x: 0, y: 1.5, z: 0}
