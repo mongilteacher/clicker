@@ -24,6 +24,11 @@ public class DamageFloater : MonoBehaviour, IPoolable
     [Header("Critical")] [SerializeField] private Color _criticalColor = new Color(1f, 0.9f, 0.2f); // 노란색
     [SerializeField] private float _criticalScale = 1.4f;
 
+    [Header("Fever Rainbow")]
+    [SerializeField] private float _rainbowCycles = 2f;
+    [SerializeField] private float _rainbowSaturation = 1f;
+    [SerializeField] private float _rainbowBrightness = 1f;
+
     // ─────────────────────────────────────────────────────────────
     // 내부 변수
     // ─────────────────────────────────────────────────────────────
@@ -108,6 +113,22 @@ public class DamageFloater : MonoBehaviour, IPoolable
             transform.DOMoveY(transform.position.y + _floatDistance, _duration)
                 .SetEase(Ease.OutCubic)
         );
+
+        // 피버 모드: 무지개 그라데이션 색상 순환
+        if (FeverManager.Instance.IsFeverMode)
+        {
+            float hue = Random.value;
+            float endHue = hue + _rainbowCycles;
+            _currentSequence.Join(
+                DOTween.To(() => hue, x =>
+                {
+                    hue = x;
+                    Color rainbow = Color.HSVToRGB(x % 1f, _rainbowSaturation, _rainbowBrightness);
+                    rainbow.a = _damageText.alpha;
+                    _damageText.color = rainbow;
+                }, endHue, _duration).SetEase(Ease.Linear)
+            );
+        }
 
         // 후반부에 페이드 아웃 (전체 시간의 마지막 40%에서 시작)
         float fadeDelay = _duration * 0.6f;
