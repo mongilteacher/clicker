@@ -24879,8 +24879,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FeverFlameEffect
   _flameRenderer: {fileID: 1395399404}
   _flameShader: {fileID: 4800000, guid: 99436681d230fa240bdddd07784516ae, type: 3}
-  _flameWidth: 0.06
-  _intensity: 2
+  _flameWidth: 0.03
+  _intensity: 3
   _speed: 3
   _noiseScale: 10
   _rainbowSpeed: 1
@@ -27135,6 +27135,7 @@ MonoBehaviour:
   _pool: {fileID: 1735949146}
   _spawnCountMin: 3
   _spawnCountMax: 5
+  _feverSpawnMultiplier: 3
   _randomOffset: {x: 0.2, y: 0.2}
 --- !u!1 &1749826495
 GameObject:

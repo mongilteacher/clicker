@@ -58,7 +58,8 @@ public class DamageFloater : MonoBehaviour, IPoolable
             _renderer.sortingOrder = 32767;
 
         // 1. 텍스트 설정
-        _damageText.text = $"<size=8><sprite=0></size>{clickInfo.Damage.ToFormattedString()}";
+        int spriteSize = clickInfo.Type == EClickType.Manual ? 8 : 9;
+        _damageText.text = $"<size={spriteSize}><sprite=0></size>{clickInfo.Damage.ToFormattedString()}";
         //_damageText.text = clickInfo.Damage.ToFormattedString();
 
 
