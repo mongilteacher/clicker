@@ -7,6 +7,8 @@ public class ClickTarget : MonoBehaviour, Clickable
 
    public bool OnClick(ClickInfo clickInfo)
    {
+      GameManager.Instance.Gold += clickInfo.Damage;
+      
       // 클릭에대한 여러 가지 피드백을 보여줘야 합니다.
       // S : 한 클래스는 하나의 역할/책임만 가지자
       // ClickTarget: 타겟에대한 중앙 관리자이자.. 소통의 창구(객체지향 상호작용) , 피드백을 실행시켜주는 역할도 

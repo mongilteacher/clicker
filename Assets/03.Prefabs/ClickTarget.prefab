@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 983791490056308954}
   - component: {fileID: 1703294423884499719}
   - component: {fileID: 6545647234675595472}
+  - component: {fileID: 897012911925316299}
   m_Layer: 6
   m_Name: ClickTarget
   m_TagString: Clickable
@@ -63,7 +64,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 5980387db687c714a9beb10eb6fcaa73, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -147,13 +148,13 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4.8055553, y: 5.172222}
+    oldSize: {x: 5.0882354, y: 5.4764705}
     newSize: {x: 27.03125, y: 29.09375}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 3.16, y: 3.4}
+  m_Size: {x: 5.5, y: 5.5}
   m_EdgeRadius: 0
 --- !u!114 &983791490056308954
 MonoBehaviour:
@@ -189,7 +190,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: fe7dac68e1caa744eb21cb55c4d1856b, type: 3}
+  m_Resource: {fileID: 8300000, guid: dbde9f7b19c4944b298da7a0bdf1b292, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -288,3 +289,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SoundFeedback
   _audio: {fileID: 1703294423884499719}
+--- !u!114 &897012911925316299
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6652898311174458766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac35beaef7e68054c81a0e94c669f790, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DamageFloaterFeedback
