@@ -28,6 +28,13 @@ public class DamageFloater : MonoBehaviour, IPoolable
     // 내부 변수
     // ─────────────────────────────────────────────────────────────
     private Sequence _currentSequence;
+    private Renderer _renderer;
+    private static int _sortingOrderCounter;
+
+    private void Awake()
+    {
+        _renderer = _damageText.GetComponent<Renderer>();
+    }
 
     // ═════════════════════════════════════════════════════════════
     // 공개 API
@@ -39,6 +46,9 @@ public class DamageFloater : MonoBehaviour, IPoolable
     /// </summary>
     public void Show(ClickInfo clickInfo)
     {
+        // 0. sortingOrder 증가
+        _renderer.sortingOrder = ++_sortingOrderCounter;
+
         // 1. 텍스트 설정
         _damageText.text = $"<size=8><sprite=0></size>{clickInfo.Damage.ToFormattedString()}";
         //_damageText.text = clickInfo.Damage.ToFormattedString();

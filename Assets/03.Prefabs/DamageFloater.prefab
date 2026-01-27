@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DamageFloater
   _damageText: {fileID: 6936274697407673660}
-  _floatDistance: 1
+  _floatDistance: 1.6
   _duration: 0.8
   _normalColor: {r: 1, g: 1, b: 1, a: 1}
   _normalScale: 1
