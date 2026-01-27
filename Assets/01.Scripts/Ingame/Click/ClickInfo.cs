@@ -1,8 +1,8 @@
-using UnityEngine;
+using Vector2 = UnityEngine.Vector2;
 
 public struct ClickInfo
 {
     public EClickType Type;
-    public int Damage;
+    public double Damage;
     public Vector2 Position;
 }

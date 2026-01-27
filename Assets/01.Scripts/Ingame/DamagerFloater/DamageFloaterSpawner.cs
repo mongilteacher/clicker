@@ -22,6 +22,6 @@ public class DamageFloaterSpawner : MonoBehaviour
         DamageFloater floater = floaterObject.GetComponent<DamageFloater>();
         
         // 2. 클릭한 위치에 생성한다.
-        floater.Show(clickInfo.Damage);
+        floater.Show(clickInfo);
     }
 }
