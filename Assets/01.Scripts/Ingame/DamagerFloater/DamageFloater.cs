@@ -46,8 +46,11 @@ public class DamageFloater : MonoBehaviour, IPoolable
     /// </summary>
     public void Show(ClickInfo clickInfo)
     {
-        // 0. sortingOrder 증가
-        _renderer.sortingOrder = ++_sortingOrderCounter;
+        // 0. sortingOrder 설정
+        if (clickInfo.Type == EClickType.Manual)
+            _renderer.sortingOrder = ++_sortingOrderCounter;
+        else
+            _renderer.sortingOrder = 32767;
 
         // 1. 텍스트 설정
         _damageText.text = $"<size=8><sprite=0></size>{clickInfo.Damage.ToFormattedString()}";
