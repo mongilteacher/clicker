@@ -15,8 +15,9 @@ public class JellyDrop : MonoBehaviour, IPoolable
     // 설정
     // ─────────────────────────────────────────────────────────────
     [Header("Launch")]
-    [SerializeField] private float _launchForceY = 10f;
-    [SerializeField] private float _launchForceX = 3f;
+    [SerializeField] private float _launchForceY = 18f;
+    [SerializeField] private float _launchForceX = 5f;
+    [SerializeField] private float _gravityScale = 3f;
 
     [Header("Scale")]
     [SerializeField] private float _scaleMin = 0.5f;
@@ -105,6 +106,7 @@ public class JellyDrop : MonoBehaviour, IPoolable
         transform.localScale = Vector3.one * scale;
 
         transform.rotation = Quaternion.identity;
+        _rigidbody.gravityScale = _gravityScale;
         _rigidbody.linearVelocity = Vector2.zero;
         _rigidbody.angularVelocity = 0f;
         _isFading = false;

@@ -5587,6 +5587,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93ed4ae840cc3be4797950b38d80e797, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::JellyDropFeedback
+  Offset: {x: 0, y: 1.5, z: 0}
 --- !u!1 &1618759236
 GameObject:
   m_ObjectHideFlags: 0
@@ -6216,7 +6217,7 @@ MonoBehaviour:
   _pool: {fileID: 1735949146}
   _spawnCountMin: 3
   _spawnCountMax: 5
-  _randomOffset: {x: 0, y: 0}
+  _randomOffset: {x: 0.2, y: 0.2}
 --- !u!1 &1758335720
 GameObject:
   m_ObjectHideFlags: 0
@@ -6438,7 +6439,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DamageFloaterSpawner
   _pool: {fileID: 1810306739}
-  _randomOffset: {x: 0.6, y: 0.2}
+  _randomOffset: {x: 0.6, y: 0}
 --- !u!1 &1814627981
 GameObject:
   m_ObjectHideFlags: 0
