@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3244460668506702710}
   - component: {fileID: 321391615296950244}
   - component: {fileID: 6590065115209275051}
+  - component: {fileID: 1525124640230533258}
   m_Layer: 0
   m_Name: FeverMeteror
   m_TagString: Untagged
@@ -84,7 +85,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: -624794263806173189, guid: 10de41f463861415db5d02630913d8bf, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.09019608}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -134,7 +135,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FeverMeteor
   _spriteRenderer: {fileID: 3244460668506702710}
   _rigidbody: {fileID: 321391615296950244}
-  _trailRenderer: {fileID: 0}
   _jellySprites:
   - {fileID: -5182741393657231050, guid: 6aa8eb9d15623bf4da111d218bac14af, type: 3}
   - {fileID: -5451526948462750178, guid: 6aa8eb9d15623bf4da111d218bac14af, type: 3}
@@ -160,3 +160,35 @@ MonoBehaviour:
   _scaleMin: 0.6
   _scaleMax: 1.3
   _despawnY: -7
+--- !u!114 &1525124640230533258
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6039276562926718402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8edf2d55ca588547881b7472e926510, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SpriteTrail.SpriteTrail
+  m_TrailName: 
+  m_CurrentTrailPreset: {fileID: 11400000, guid: f0821aa503c3ea240a4a76453fbfc15c, type: 2}
+  m_TrailParent: {fileID: 0}
+  m_SpriteToDuplicate: {fileID: 0}
+  m_Layer: 0
+  m_ZMoveStep: 0.0001
+  m_ZMoveMax: 0.9999
+  m_HideTrailOnDisabled: 1
+  m_TrailActivationCondition: 0
+  m_TrailDeactivationCondition: 0
+  m_StartIfUnderVelocity: 0
+  m_VelocityStartIsLocalSpace: 0
+  m_VelocityNeededToStart: 0
+  m_StopIfOverVelocity: 0
+  m_VelocityStopIsLocalSpace: 0
+  m_VelocityNeededToStop: 0
+  m_TrailActivationDuration: 0
+  m_SortingLayerID: -1895100311
+  m_OrderInSortingLayer: -2
+  m_DisabledElementsInTrail: []

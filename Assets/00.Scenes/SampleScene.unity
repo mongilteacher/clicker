@@ -290,7 +290,8 @@ MonoBehaviour:
   _spawnInterval: 0.15
   _spawnPerTick: 2
   _spawnY: 7
-  _spawnXRange: 7
+  _spawnXMin: 2
+  _spawnXMax: 10
 --- !u!114 &23607231
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31129,10 +31130,6 @@ PrefabInstance:
     - target: {fileID: 6039276562926718402, guid: 3081cddd015574744bb0a8a948bb7254, type: 3}
       propertyPath: m_Name
       value: FeverMeteror
-      objectReference: {fileID: 0}
-    - target: {fileID: 6590065115209275051, guid: 3081cddd015574744bb0a8a948bb7254, type: 3}
-      propertyPath: _trailRenderer
-      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6886890285737207380, guid: 3081cddd015574744bb0a8a948bb7254, type: 3}
       propertyPath: m_LocalPosition.x

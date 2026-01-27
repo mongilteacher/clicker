@@ -35,12 +35,12 @@ public class FeverMeteor : MonoBehaviour, IPoolable
 
     public void Play()
     {
-        // 아래 방향 + 살짝 옆으로 비스듬히 떨어지는 초기 속도
-        Vector2 velocity = new Vector2(
-            Random.Range(-_horizontalSpeedRange, _horizontalSpeedRange),
+        // 왼쪽 아래 방향으로 힘 적용
+        Vector2 force = new Vector2(
+            -Random.Range(_horizontalSpeedRange * 0.5f, _horizontalSpeedRange),
             -_fallSpeed
         );
-        _rigidbody.linearVelocity = velocity;
+        _rigidbody.AddForce(force, ForceMode2D.Impulse);
 
         // 랜덤 회전
         _rigidbody.angularVelocity = Random.Range(_angularVelocityMin, _angularVelocityMax)
