@@ -1,14 +1,14 @@
 using System;
 using UnityEngine;
 
-// 오직 "재화"만 관리하는 클래스입니다.
+// 오직 데이터(재화)를 "관리"하는 클래스입니다.
 // 클린 아키텍처에서는 "서비스"라는 이름을 쓴다. (그러나 게임에서는 보통 "매니저"라고 표현한다.)
 public class CurrencyManager : MonoBehaviour
 {
    public static CurrencyManager Instance;
    // CRUD
-   // 재화  관리란: "데이터에 대한 생성 / 조회 / 사용 / 소모 / 이벤트"
-   //             ㄴ 비즈니스 로직(게임 로직): 데이터 사용에 대한 핵심 규칙
+   //  관리란: "데이터에 대한 생성 / 조회 / 사용 / 소모 / 이벤트 등" 로직
+   //         ㄴ 비즈니스 로직(게임 로직): 데이터 사용에 대한 핵심 규칙
 
    // 이벤트
    public static event Action OnDataChanged;
@@ -21,6 +21,12 @@ public class CurrencyManager : MonoBehaviour
    private void Awake()
    {
       Instance = this;
+   }
+
+
+   private void Start()
+   {
+      Load();
    }
    
    // 0. 재화 조회
@@ -40,6 +46,8 @@ public class CurrencyManager : MonoBehaviour
    public void Add(ECurrencyType type, double amount)
    {
       _currencies[(int)type] += amount;
+
+      Save();
       
       OnDataChanged?.Invoke();
    }
@@ -50,6 +58,8 @@ public class CurrencyManager : MonoBehaviour
       if (_currencies[(int)type] >= amount)
       {
          _currencies[(int)type] -= amount;
+
+         Save();
          
          OnDataChanged?.Invoke();
 
@@ -63,5 +73,28 @@ public class CurrencyManager : MonoBehaviour
    public bool CanAfford(ECurrencyType type, double amount)
    {
       return _currencies[(int)type] >= amount;
+   }
+   
+   private void Save()
+   {
+      // 1. PlayerPrefs + double->string
+      // 2. PlayerPrefs + double->json
+      
+      for (int i = 0; i < (int)ECurrencyType.Count; i++)
+      {
+         var type = (ECurrencyType)i;
+         PlayerPrefs.SetString(type.ToString(), _currencies[i].ToString("G17"));
+      }
+   }
+
+   private void Load()
+   {
+      for (int i = 0; i < (int)ECurrencyType.Count; i++)
+      {
+         if (PlayerPrefs.HasKey(i.ToString()))
+         {
+            _currencies[i] = double.Parse(PlayerPrefs.GetString(i.ToString(), "0")); 
+         }
+      }
    }
 }
