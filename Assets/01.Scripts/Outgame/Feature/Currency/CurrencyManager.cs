@@ -8,40 +8,48 @@ public class CurrencyManager : MonoBehaviour
    public static CurrencyManager Instance;
    // CRUD
    // 재화  관리란: "데이터에 대한 생성 / 조회 / 사용 / 소모 / 이벤트"
+   //             ㄴ 비즈니스 로직(게임 로직): 데이터 사용에 대한 핵심 규칙
 
-   // 재화 데이터
-   public double Gold { get; private set; }
-   public double Ruby { get; private set; }
-
+   // 이벤트
    public static event Action OnDataChanged;
 
+   
+   // 재화 데이터들 (배열로 관리)
+   private double[] _currencies = new double[(int)ECurrencyType.Count];
+   
+   
    private void Awake()
    {
       Instance = this;
    }
    
-   // 1. 재화 추가
-   public void AddGold(double amount)
+   // 0. 재화 조회
+   public double Get(ECurrencyType currencyType)
    {
-      Debug.Log(Gold);
-      Gold += amount;
-      
-      OnDataChanged?.Invoke();
+      return _currencies[(int)currencyType];
    }
-
-   public void AddRuby(double amount)
+   
+   // - 어쩔수 없는 재화 조회 편의 기능... ㅠㅠ
+   
+   public double Gold => Get(ECurrencyType.Gold);
+   public double Ruby => Get(ECurrencyType.Ruby);
+   public double Jelly => Get(ECurrencyType.Jelly);
+   
+   
+   // 1. 재화 추가
+   public void Add(ECurrencyType type, double amount)
    {
-      Ruby += amount;
+      _currencies[(int)type] += amount;
       
       OnDataChanged?.Invoke();
    }
    
    // 2. 재화 소모
-   public bool TrySpendGold(double amount)
+   public bool TrySpend(ECurrencyType type, double amount)
    {
-      if (Gold >= amount)
+      if (_currencies[(int)type] >= amount)
       {
-         Gold -= amount;
+         _currencies[(int)type] -= amount;
          
          OnDataChanged?.Invoke();
 
@@ -51,17 +59,9 @@ public class CurrencyManager : MonoBehaviour
       return false;
    }
    
-   public bool TrySpendRuby(double amount)
+   // 3. 돈 있으세요? 
+   public bool CanAfford(ECurrencyType type, double amount)
    {
-      if (Ruby >= amount)
-      {
-         Ruby -= amount;
-         
-         OnDataChanged?.Invoke();
-
-         return true;
-      }
-
-      return false;
+      return _currencies[(int)type] >= amount;
    }
 }
