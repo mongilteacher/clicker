@@ -10,7 +10,7 @@
 
 using UnityEngine;
 
-public class CurrencyRepository
+public class LocalCurrencyRepository : ICurrencyRepository
 {
     public void Save(CurrencySaveData saveData)
     {

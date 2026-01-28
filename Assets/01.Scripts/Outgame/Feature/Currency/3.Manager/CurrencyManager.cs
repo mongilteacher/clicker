@@ -18,13 +18,15 @@ public class CurrencyManager : MonoBehaviour
    private double[] _currencies = new double[(int)ECurrencyType.Count];
    
    // 저장소
-   private CurrencyRepository _repository;
+   // 의존이란 한 객체가 동작하기 위해서 다른 객체를 참조하는것을
+   // DIP: 구현체에 의존하지 말고 약속에 의존해라 
+   private ICurrencyRepository _repository;
    
    private void Awake()
    {
       Instance = this;
 
-      _repository = new CurrencyRepository();
+      _repository = new LocalCurrencyRepository();
    }
 
    private void Start()
