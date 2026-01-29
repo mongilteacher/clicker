@@ -6429,6 +6429,51 @@ MonoBehaviour:
   _returnSpeed: 15
   _hitDistanceMin: 0
   _hitDistanceMax: 2
+--- !u!1 &459484843
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 459484845}
+  - component: {fileID: 459484846}
+  m_Layer: 0
+  m_Name: UpgradManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &459484845
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 459484843}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &459484846
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 459484843}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3aa972d2e5c4bbb803edd5db632d9f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UpgradeManager
+  _specTable: {fileID: 11400000, guid: d53af08767c8171499437a7ad34a1cd6, type: 2}
 --- !u!1 &482801354
 GameObject:
   m_ObjectHideFlags: 0
@@ -16419,7 +16464,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FeverFlameEffect
   _flameRenderer: {fileID: 1395399404}
   _flameShader: {fileID: 4800000, guid: 99436681d230fa240bdddd07784516ae, type: 3}
-  _flameWidth: 0.03
+  _flameWidth: 0.07
   _intensity: 3
   _speed: 3
   _noiseScale: 10
@@ -18685,6 +18730,7 @@ SceneRoots:
   - {fileID: 812835121}
   - {fileID: 1336483771}
   - {fileID: 982678143}
+  - {fileID: 459484845}
   - {fileID: 958733290}
   - {fileID: 1810306738}
   - {fileID: 1735949145}

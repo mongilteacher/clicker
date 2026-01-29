@@ -15,6 +15,7 @@ public class UpgradeManager : MonoBehaviour
     {
         Instance = this;
 
+        // 스펙 데이터에 따라 도메인 생성
         foreach (var specData in _specTable.Datas)
         {
             if (_upgrades.ContainsKey(specData.Type))
@@ -24,5 +25,7 @@ public class UpgradeManager : MonoBehaviour
             
             _upgrades.Add(specData.Type, new Upgrade(specData));
         }
+        
+        OnDataChanged?.Invoke();
     }
 }
