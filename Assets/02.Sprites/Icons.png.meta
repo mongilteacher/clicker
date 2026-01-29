@@ -1,31 +1,22 @@
 fileFormatVersion: 2
-guid: c1197c2bdd7510e4fa630f0c4b9b1f35
+guid: 31a3011458e49894eaf243792b3aaec7
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1453089661382163871
-    second: Angel3_opt_0
+      213: 1161201145128540330
+    second: Icons_0
   - first:
-      213: -2868186282470672133
-    second: Angel3_opt_1
+      213: 2130535880278150251
+    second: Icons_1
   - first:
-      213: 705953958250134471
-    second: Angel3_opt_2
+      213: 184950751378207249
+    second: Icons_2
   - first:
-      213: -6102847545029941652
-    second: Angel3_opt_3
+      213: 1202984965197363600
+    second: Icons_3
   - first:
-      213: -8212339266616985655
-    second: Angel3_opt_4
-  - first:
-      213: 3820461239400392520
-    second: Angel3_opt_5
-  - first:
-      213: 537940550295008551
-    second: Angel3_opt_6
-  - first:
-      213: -748887563443217185
-    second: Angel3_opt_7
+      213: 5543941588292853863
+    second: Icons_4
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -93,10 +84,10 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 4096
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -134,13 +125,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Angel3_opt_0
+      name: Icons_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 752
-        height: 424
+        x: 20
+        y: 517
+        width: 478
+        height: 474
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -149,20 +140,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f9df97529596a2410800000000000000
-      internalID: 1453089661382163871
+      spriteID: aa8d9280a4a6d1010800000000000000
+      internalID: 1161201145128540330
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Angel3_opt_1
+      name: Icons_1
       rect:
         serializedVersion: 2
-        x: 752
-        y: 0
-        width: 752
-        height: 424
+        x: 285
+        y: 62
+        width: 471
+        height: 446
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -171,20 +162,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: bf8ffabb5c72238d0800000000000000
-      internalID: -2868186282470672133
+      spriteID: b6c0435581f219d10800000000000000
+      internalID: 2130535880278150251
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Angel3_opt_2
+      name: Icons_2
       rect:
         serializedVersion: 2
-        x: 1504
-        y: 0
-        width: 752
-        height: 424
+        x: 547
+        y: 512
+        width: 454
+        height: 476
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -193,20 +184,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7cbb74d726d0cc900800000000000000
-      internalID: 705953958250134471
+      spriteID: 112f6dc7ab3119200800000000000000
+      internalID: 184950751378207249
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Angel3_opt_3
+      name: Icons_3
       rect:
         serializedVersion: 2
-        x: 2256
-        y: 0
-        width: 752
-        height: 424
+        x: 796
+        y: 65
+        width: 490
+        height: 445
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -215,20 +206,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c662028fd745e4ba0800000000000000
-      internalID: -6102847545029941652
+      spriteID: 09979b0c37cd1b010800000000000000
+      internalID: 1202984965197363600
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Angel3_opt_4
+      name: Icons_4
       rect:
         serializedVersion: 2
-        x: 3008
-        y: 0
-        width: 752
-        height: 424
+        x: 1033
+        y: 512
+        width: 445
+        height: 502
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -237,74 +228,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9c77d46a2f8e70e80800000000000000
-      internalID: -8212339266616985655
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Angel3_opt_5
-      rect:
-        serializedVersion: 2
-        x: 3760
-        y: 0
-        width: 752
-        height: 424
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 847eb9c6141050530800000000000000
-      internalID: 3820461239400392520
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Angel3_opt_6
-      rect:
-        serializedVersion: 2
-        x: 4512
-        y: 0
-        width: 752
-        height: 424
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 725bc929416277700800000000000000
-      internalID: 537940550295008551
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Angel3_opt_7
-      rect:
-        serializedVersion: 2
-        x: 5264
-        y: 0
-        width: 752
-        height: 424
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: fdc52449aba6b95f0800000000000000
-      internalID: -748887563443217185
+      spriteID: 760e5b1608900fc40800000000000000
+      internalID: 5543941588292853863
       vertices: []
       indices: 
       edges: []
@@ -313,7 +238,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 66e61f10bf3b67444a68c718111f656a
+    spriteID: bedfd8d6387d719419172b173742fe46
     internalID: 0
     vertices: []
     indices: 
@@ -321,20 +246,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries:
-      - key: SpriteEditor.SliceOnImport
-        value: False
-      - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":8.0,"y":1.0},"gridSpriteSize":{"x":752.0,"y":424.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+      entries: []
     nameFileIdTable:
-      Angel3_opt_0: 1453089661382163871
-      Angel3_opt_1: -2868186282470672133
-      Angel3_opt_2: 705953958250134471
-      Angel3_opt_3: -6102847545029941652
-      Angel3_opt_4: -8212339266616985655
-      Angel3_opt_5: 3820461239400392520
-      Angel3_opt_6: 537940550295008551
-      Angel3_opt_7: -748887563443217185
+      Icons_0: 1161201145128540330
+      Icons_1: 2130535880278150251
+      Icons_2: 184950751378207249
+      Icons_3: 1202984965197363600
+      Icons_4: 5543941588292853863
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
