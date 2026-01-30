@@ -9,6 +9,11 @@ public class AccountManager : MonoBehaviour
 {
     public AccountManager Instance { get; private set; }
 
+    private Account _currentAccount = null;
+    public bool IsLogin => _currentAccount != null;
+    public string Email => _currentAccount?.Email ?? string.Empty;
+    
+
     private void Awake()
     {
         Instance = this;
@@ -43,7 +48,8 @@ public class AccountManager : MonoBehaviour
             //_messageTextUI.text = "아이디/비밀번호를 확인해주세요.";
             return false;
         }
-
+        
+        _currentAccount = account;
 
         return true;
     }
