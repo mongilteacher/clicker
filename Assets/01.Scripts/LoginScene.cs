@@ -58,15 +58,15 @@ public class LoginScene : MonoBehaviour
         string email = _idInputField.text;
         string password = _passwordInputField.text;
         
-        if (AccountManager.Instance.TryLogin(email, password))
+        var result = AccountManager.Instance.TryLogin(email, password);
+        if (result.Success)
         {
-            SceneManager.LoadScene("MainScene");
+            GotoLogin();
         }
         else
         {
-            _messageTextUI.text = "로그인에 실패했습니다.";
+            _messageTextUI.text = result.ErrorMessage;
         }
-        
     }
 
     private void Register()
@@ -81,13 +81,14 @@ public class LoginScene : MonoBehaviour
             return;
         }
 
-        if (AccountManager.Instance.TryRegister(email, password))
+        var result = AccountManager.Instance.TryRegister(email, password);
+        if (result.Success)
         {
             GotoLogin();
         }
         else
         {
-            _messageTextUI.text = "회원가입에 실패했습니다.";
+            _messageTextUI.text = result.ErrorMessage;
         }
 
     }

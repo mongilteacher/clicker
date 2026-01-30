@@ -12,7 +12,7 @@ public class AccountManager : MonoBehaviour
     private Account _currentAccount = null;
     public bool IsLogin => _currentAccount != null;
     public string Email => _currentAccount?.Email ?? string.Empty;
-    
+
 
     private void Awake()
     {
@@ -20,7 +20,7 @@ public class AccountManager : MonoBehaviour
     }
 
 
-    public bool TryLogin(string email, string password)
+    public AuthResult TryLogin(string email, string password)
     {
         Account account = null;
         
@@ -30,37 +30,53 @@ public class AccountManager : MonoBehaviour
         }
         catch(Exception ex)
         {
-            // 1. 유효성 검증 통과 못하면 실패
-            return false;
+            return new AuthResult
+            {
+                Success = false,
+                ErrorMessage = ex.Message,
+            };
         }
         
         // 2. 가입한적 없다면 실패!
         if (!PlayerPrefs.HasKey(email))
         {
-            // _messageTextUI.text = "아이디/비밀번호를 확인해주세요.";
-            return false;
+            return new AuthResult
+            {
+                Success = false,
+                ErrorMessage = "아이디와 비밀번호를 확인해주세요.",
+            };
         }
         
         // 3. 비밀번호 틀렸다면 실패.
         string myPassword = PlayerPrefs.GetString(email);
         if (myPassword != account.Password)
         {
-            //_messageTextUI.text = "아이디/비밀번호를 확인해주세요.";
-            return false;
+            return new AuthResult
+            {
+                Success = false,
+                ErrorMessage = "아이디와 비밀번호를 확인해주세요.",
+            };
         }
         
         _currentAccount = account;
 
-        return true;
+        return new AuthResult
+        {
+            Success = true,
+            Account = _currentAccount,
+        };
     }
 
-    public bool TryRegister(string email, string password)
+    public AuthResult TryRegister(string email, string password)
     {
         // 1. 이메일 중복검사
         if (PlayerPrefs.HasKey(email))
         {
-            // _messageTextUI.text = "중복된 아이디입니다.";
-            return false;
+            return new AuthResult
+            {
+                Success = false,
+                ErrorMessage = "중복된 계정입니다.",
+            };
         }
         
         try
@@ -69,15 +85,21 @@ public class AccountManager : MonoBehaviour
         }
         catch(Exception ex)
         {
-            // 2. 유효성 검증 통과 못하면 실패
-            return false;
+            return new AuthResult
+            {
+                Success = false,
+                ErrorMessage = ex.Message,
+            };
         }
         
         // 3. 성공하면 저장!
         PlayerPrefs.SetString(email, password);
 
-        
-        return true;
+
+        return new AuthResult()
+        {
+            Success = true,
+        };
     }
 
     public void Logout()
