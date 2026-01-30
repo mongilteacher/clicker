@@ -18139,8 +18139,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb47570cc06fa33409a4b5d3f1a5caae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
-  ManualDamage: 10000000000
-  AutoDamage: 10000000000
 --- !u!1001 &2081568329
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18640,6 +18638,10 @@ PrefabInstance:
     - target: {fileID: 7801446113770339798, guid: 7ed39caea6eaffa449f086eaccca2903, type: 3}
       propertyPath: m_SizeDelta.y
       value: 132
+      objectReference: {fileID: 0}
+    - target: {fileID: 9119011742387085196, guid: 7ed39caea6eaffa449f086eaccca2903, type: 3}
+      propertyPath: _pressedScale
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 9159715298834034083, guid: 7ed39caea6eaffa449f086eaccca2903, type: 3}
       propertyPath: m_AnchoredPosition.x

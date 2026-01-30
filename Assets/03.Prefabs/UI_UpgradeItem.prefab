@@ -1413,6 +1413,7 @@ GameObject:
   - component: {fileID: 1971950752507108225}
   - component: {fileID: 2673237693358536341}
   - component: {fileID: 4417840588513499808}
+  - component: {fileID: 5816703958621578340}
   m_Layer: 5
   m_Name: UpgradeButton
   m_TagString: Untagged
@@ -1608,6 +1609,23 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &5816703958621578340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6814442178046273738}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5792e319b71fe064aa0f84de01eaf240, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UI_TouchBounce
+  _targetRect: {fileID: 3524864841987556647}
+  _button: {fileID: 2673237693358536341}
+  _pressedScale: 1.06
+  _pressDuration: 0.1
+  _releaseDuration: 0.08
 --- !u!1 &8735706353446009468
 GameObject:
   m_ObjectHideFlags: 0

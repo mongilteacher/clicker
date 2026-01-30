@@ -1,4 +1,7 @@
-﻿public class CurrencySaveData
+﻿using System;
+
+[Serializable]
+public class CurrencySaveData
 {
     // 재화 배열
     public double[] Currencies;

@@ -9,13 +9,18 @@ public class UpgradeManager : MonoBehaviour
     public static event Action OnDataChanged ;
 
     [SerializeField] private UpgradeSpecTableSO _specTable;
-    
+    private IUpgradeRepository _repository;
+
     private Dictionary<EUpgradeType, Upgrade> _upgrades = new ();
     
     private void Awake()
     {
         Instance = this;
 
+        _repository = new JsonUpgradeRepository();
+        
+        var saveData = _repository.Load();
+        
         // 스펙 데이터에 따라 도메인 생성
         foreach (var specData in _specTable.Datas)
         {
@@ -23,9 +28,21 @@ public class UpgradeManager : MonoBehaviour
             {
                 throw new Exception($"There is already an upgrade with type {specData.Type}");
             }
+
+            int savedLevel = 0;
+            int index = (int)specData.Type;
+            if (saveData.Levels != null && index < saveData.Levels.Length)
+            {
+                Debug.Log(saveData.Levels[index]);
+                savedLevel = saveData.Levels[index];
+            }
+            else
+            {
+                Debug.Log("없");
+            }
             
             Debug.Log(specData.Name);
-            _upgrades.Add(specData.Type, new Upgrade(specData));
+            _upgrades.Add(specData.Type, new Upgrade(specData, savedLevel));
         }
         
         OnDataChanged?.Invoke();
@@ -53,26 +70,38 @@ public class UpgradeManager : MonoBehaviour
     {
         if (!_upgrades.TryGetValue(type, out Upgrade upgrade))
         {
-            Debug.Log(1);
-
             return false;
         }
 
         if (!CurrencyManager.Instance.TrySpend(ECurrencyType.Gold, upgrade.Cost))
         {
-            Debug.Log(2);
-
             return false;
         }
 
         if (!upgrade.TryLevelUp())
         {
-            Debug.Log(3);
             return false;
         }
+        
+        Save();
         
         OnDataChanged?.Invoke();
         
         return true;
+    }
+    
+    private void Save()
+    {
+        var data = new UpgradeSaveData
+        {
+            Levels = new int[(int)EUpgradeType.Count]
+        };
+
+        foreach (var pair in _upgrades)
+        {
+            data.Levels[(int)pair.Key] = pair.Value.Level;
+        }
+
+        _repository.Save(data);
     }
 }

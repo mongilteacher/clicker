@@ -21,8 +21,11 @@ public class Upgrade
     
     
     // 2. 핵심 규칙(유효성)을 작성한다.
-    public Upgrade(UpgradeSpecData specData)
+    public Upgrade(UpgradeSpecData specData, int level)
     {
+        if(level < 0) throw new System.ArgumentException($"레벨은 양수!: {level}");
+
+        Level = level;
         SpecData = specData;
         
         if (specData.MaxLevel < 0) throw new System.ArgumentException($"최대 레벨은 0보다 커야 합니다: {specData.MaxLevel}");
@@ -45,6 +48,8 @@ public class Upgrade
         if (!CanLevelUp()) return false;
 
         Level++;
+        
+        Debug.Log(Cost);
 
         return true;
     }

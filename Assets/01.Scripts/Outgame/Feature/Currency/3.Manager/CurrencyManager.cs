@@ -42,9 +42,11 @@ public class CurrencyManager : MonoBehaviour
       double[] currencyValues = _repository.Load().Currencies;
       for (int i = 0; i < _currencies.Length; i++)
       {
+         Debug.Log(currencyValues[i]);
          _currencies[i] = currencyValues[i];
       }
       
+      OnDataChanged?.Invoke();
    }
    
    
