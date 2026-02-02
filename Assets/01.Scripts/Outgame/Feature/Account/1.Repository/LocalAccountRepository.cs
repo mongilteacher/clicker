@@ -26,12 +26,14 @@ public class LocalAccountRepository : IAccountRepository
             };
         }
         
-        PlayerPrefs.SetString(email, password);
+        string hashedPassword = Crypto.HashPassword(password);
+        
+        PlayerPrefs.SetString(email, hashedPassword);
         
         return new AuthResult()
         {
             Success = true,
-            Account = new Account(email, password),
+            Account = new Account(email, hashedPassword),
         };
     }
 
@@ -49,7 +51,7 @@ public class LocalAccountRepository : IAccountRepository
         
         // 3. 비밀번호 틀렸다면 실패.
         string myPassword = PlayerPrefs.GetString(email);
-        if (myPassword != password)
+        if (Crypto.VerifyPassword(password, myPassword))
         {
             return new AuthResult
             {
@@ -61,7 +63,7 @@ public class LocalAccountRepository : IAccountRepository
         return new AuthResult()
         {
             Success = true,
-            Account = new Account(email, password),
+            Account = new Account(email, myPassword),
         };
     }
 

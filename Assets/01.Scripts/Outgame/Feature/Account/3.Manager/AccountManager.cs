@@ -77,6 +77,7 @@ public class AccountManager : MonoBehaviour
             };
         }
         
+        // 2. 레포지토리 회원가입
         AuthResult result = _repository.Register(email, password);
         if (result.Success)
         {
