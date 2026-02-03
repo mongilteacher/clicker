@@ -4,6 +4,7 @@ using Firebase;
 using Firebase.Auth;
 using Firebase.Extensions;
 using Firebase.Firestore;
+using TMPro;
 
 public class FirebaseTutorial : MonoBehaviour
 {
@@ -11,22 +12,53 @@ public class FirebaseTutorial : MonoBehaviour
     private FirebaseAuth    _auth = null;
     private FirebaseFirestore _db = null;
     
+    public TextMeshProUGUI _progressText;
     
     private void Start()
     {
         // 과제.
-        // 이 씬이 시작되면
-        // 1. 파이베이스 초기화
+        // 이 씬이 시작되면 아래 내용을 단계적으로 수행한다.
+        // - 각 단계 마다 ProgressText의 내용이 바뀐다. (ex. 로그아웃 완료)
+        // - 각 단계 마다 Debug.Log로 완룔를 알린다.     (ex. 로그아웃 완료)
+        // 1. 파이베이스 초기화     
         // 2. 로그아웃
         // 3. 재로그인
-        // 4. 강아지 추가
+        // 4. 강아지 추가 (전제조건: 파이어스토어 규칙에 로그인한 사람만 글 쓰기 가능)
+        // ㄴ 위 내용이 에러없이 잘 이어지게 InitFirebase();
+        _progressText.text = "파이어베이스 초기화 완료";
+        Debug.Log("파이어베이스 초기화 완료");
         
+        Logout();
+        _progressText.text = "로그아웃 완료";
+        Debug.Log("로그아웃 완료");
+        
+        Login("hongil@skku.re.kr", "12345678");
+        _progressText.text = "로그인 완료";
+        Debug.Log("로그인 완료");
+        
+        SaveDog();
+        _progressText.text = "강아지 추가 완료";
+        Debug.Log("강아지 추가 완료");
     }
 
     private void InitFirebase()
     {
         // 콜백 함수 : 특정 이벤트가 발생하고 나면 자동으로 호출되는 함수
         // 접속에 1MS ~~~ 
+        
+        
+        // 유니티는 MonoBehaviour 실행에 있어서 싱글쓰레드
+        // Task 타입이란 비동기에 대한 진행사항과 완료됏을때 결과값을 가지고 있는 객체
+        
+        // <정리 과제>
+        // 1. 파이어베이스 로그인/로그아웃, CRUD를 공부하시고
+        // 2. Task, async, await 
+        //    - 단점이 무엇인지 (메인쓰레드로 돌아오지 않을 확률이 크다.)
+        // 3. UniTask
+        //    - 장점이 무엇인지
+        
+        
+        
         Firebase.FirebaseApp.CheckAndFixDependenciesAsync().ContinueWithOnMainThread(task => {
             if (task.Result == DependencyStatus.Available)
             {
