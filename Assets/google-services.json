@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1085468630231",
+    "project_id": "jelly-clicker-172f6",
+    "storage_bucket": "jelly-clicker-172f6.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1085468630231:android:e94ed3eb4431229eb6e492",
+        "android_client_info": {
+          "package_name": "com.lumenasoft.jelly_clicker"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBTWt6XR-VXdTiPzqrkfwlSBix6npUgLDk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
