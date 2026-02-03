@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using Firebase;
 using Firebase.Auth;
@@ -12,6 +13,17 @@ public class FirebaseTutorial : MonoBehaviour
     
     
     private void Start()
+    {
+        // 과제.
+        // 이 씬이 시작되면
+        // 1. 파이베이스 초기화
+        // 2. 로그아웃
+        // 3. 재로그인
+        // 4. 강아지 추가
+        
+    }
+
+    private void InitFirebase()
     {
         // 콜백 함수 : 특정 이벤트가 발생하고 나면 자동으로 호출되는 함수
         // 접속에 1MS ~~~ 
@@ -31,6 +43,7 @@ public class FirebaseTutorial : MonoBehaviour
             }
         });
     }
+    
 
     private void Register(string email, string password)
     {
@@ -90,15 +103,102 @@ public class FirebaseTutorial : MonoBehaviour
         Dog dog = new Dog("소똥이", 4);
 
         _db.Collection("Dogs").AddAsync(dog).ContinueWithOnMainThread(task =>
+        //_db.Collection("Dogs").Document("홍일이 개").SetAsync(dog).ContinueWithOnMainThread(task =>
         {
+            // Add vs Set
+            // Add: 추가한다.
+            // Set: 이미 아이디의 문서가 있다면 수정하고, 없다면 추가한다.
+            
             if (task.IsCompletedSuccessfully)
             {
                 string documentId = task.Result.Id;
                 Debug.LogError("저장 성공! 문서 ID: " + documentId);
+                Debug.LogError("저장 성공!");
             }
             else
             {
                 Debug.LogError("저장 실패: " + task.Exception);
+            }
+        });
+    }
+
+    private void LoadMyDog()
+    {
+        _db.Collection("Dogs").Document("홍일이 개").GetSnapshotAsync().ContinueWithOnMainThread(task =>
+        {
+            if (task.IsCompletedSuccessfully)
+            {
+                var snapshot = task.Result;
+                if (snapshot.Exists)
+                {
+                    Dog myDog = snapshot.ConvertTo<Dog>();
+                    Debug.Log($"{myDog.Name}({myDog.Age})");
+                }
+                else
+                {
+                    Debug.LogError("데이터가 없습니다.");
+                }
+            }
+            else
+            {
+                Debug.LogError("불러오기 실패: " + task.Exception);
+            }
+        });
+    
+    }
+
+    private void LoadDogs()
+    {
+        _db.Collection("Dogs").GetSnapshotAsync().ContinueWithOnMainThread(task =>
+        {
+            if (task.IsCompletedSuccessfully)
+            {
+                var snapshots = task.Result;
+                Debug.Log("강아지들-------------------------------------------");
+                foreach (DocumentSnapshot snapshot in snapshots.Documents)
+                {
+                    Dog myDog = snapshot.ConvertTo<Dog>();
+                    Debug.Log($"{myDog.Name}({myDog.Age})");
+                }
+                
+                Debug.LogError("불러오기 성공!");
+            }
+            else
+            {
+                Debug.LogError("불러오기 실패: " + task.Exception);
+            }
+        });
+    }
+
+    private void DeleteDogs()
+    {
+        // 목표: 소똥이들 삭제
+        _db.Collection("Dogs").WhereEqualTo("Name", "소똥이").GetSnapshotAsync().ContinueWithOnMainThread(task =>
+        {
+            if (task.IsCompletedSuccessfully)
+            {
+                var snapshots = task.Result;
+                Debug.Log("강아지들-------------------------------------------");
+                foreach (DocumentSnapshot snapshot in snapshots.Documents)
+                {
+                    Dog myDog = snapshot.ConvertTo<Dog>();
+                    if (myDog.Name == "소똥이")
+                    {
+                        _db.Collection("Dogs").Document(myDog.Id).DeleteAsync().ContinueWithOnMainThread(task =>
+                        {
+                            if (task.IsCompletedSuccessfully)
+                            {
+                                Debug.Log("데이터가 삭제됐습니다.");
+                            }
+                        });
+                    }
+                }
+                
+                Debug.LogError("불러오기 성공!");
+            }
+            else
+            {
+                Debug.LogError("불러오기 실패: " + task.Exception);
             }
         });
     }
@@ -131,6 +231,16 @@ public class FirebaseTutorial : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha5))
         {
             SaveDog();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha6))
+        {
+            LoadMyDog();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha7))
+        {
+            LoadDogs();
         }
     } 
     
