@@ -1,10 +1,14 @@
 ﻿using System;
+using Firebase.Firestore;
 
 [Serializable]
+[FirestoreData]
 public class CurrencySaveData
 {
     // 재화 배열
-    public double[] Currencies;
+    [FirestoreProperty]
+    public double[] Currencies { get; set; }
+    
     
     // 재화 기본값
     public static CurrencySaveData Default => new CurrencySaveData()

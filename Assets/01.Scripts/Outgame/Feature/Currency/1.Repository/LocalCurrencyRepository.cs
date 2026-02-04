@@ -8,6 +8,7 @@
 // - 2) 0000 해진다.
 // - 3) 0000 해진다.
 
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 
 public class LocalCurrencyRepository : ICurrencyRepository
@@ -19,7 +20,7 @@ public class LocalCurrencyRepository : ICurrencyRepository
         _userId = userId;
     }
     
-    public void Save(CurrencySaveData saveData)
+    public async UniTaskVoid Save(CurrencySaveData saveData)
     {
         // 어떻게든 Save한다.
         for (int i = 0; i < (int)ECurrencyType.Count; i++)
@@ -29,7 +30,7 @@ public class LocalCurrencyRepository : ICurrencyRepository
         }
     }
 
-    public CurrencySaveData Load()
+    public async UniTask<CurrencySaveData> Load()
     {
         CurrencySaveData data =  CurrencySaveData.Default;
 

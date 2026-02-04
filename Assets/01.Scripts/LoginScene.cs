@@ -73,13 +73,13 @@ public class LoginScene : MonoBehaviour
     }
     
     
-    private void Login()
+    private async void Login()
     {
         // 로그인
         string email = _idInputField.text;
         string password = _passwordInputField.text;
         
-        var result = AccountManager.Instance.TryLogin(email, password);
+        var result = await AccountManager.Instance.TryLogin(email, password);
         if (result.Success)
         {
             GotoLogin();
@@ -90,7 +90,7 @@ public class LoginScene : MonoBehaviour
         }
     }
 
-    private void Register()
+    private async void Register()
     {
         string email = _idInputField.text;
         string password = _passwordInputField.text;
@@ -102,7 +102,7 @@ public class LoginScene : MonoBehaviour
             return;
         }
 
-        var result = AccountManager.Instance.TryRegister(email, password);
+        var result = await AccountManager.Instance.TryRegister(email, password);
         if (result.Success)
         {
             GotoLogin();
