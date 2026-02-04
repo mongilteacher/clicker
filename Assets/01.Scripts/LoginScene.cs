@@ -82,11 +82,12 @@ public class LoginScene : MonoBehaviour
         var result = await AccountManager.Instance.TryLogin(email, password);
         if (result.Success)
         {
-            GotoLogin();
+            SceneManager.LoadScene("MainScene");
         }
         else
         {
             _messageTextUI.text = result.ErrorMessage;
+            Debug.Log(result.ErrorMessage);
         }
     }
 
@@ -109,6 +110,7 @@ public class LoginScene : MonoBehaviour
         }
         else
         {
+            Debug.LogError(result.ErrorMessage);
             _messageTextUI.text = result.ErrorMessage;
         }
 

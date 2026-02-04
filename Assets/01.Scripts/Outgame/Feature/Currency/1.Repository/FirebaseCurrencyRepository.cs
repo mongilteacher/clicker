@@ -31,10 +31,15 @@ public class FirebaseCurrencyRepository : ICurrencyRepository
         {
             string email = _auth.CurrentUser.Email;
 
-            DocumentSnapshot snapshot =
-                await _db.Collection(CURRENCY_COLLECTION_NAME).Document(email).GetSnapshotAsync();
-
-            return snapshot.ConvertTo<CurrencySaveData>();
+            DocumentSnapshot snapshot = await _db.Collection(CURRENCY_COLLECTION_NAME).Document(email).GetSnapshotAsync();
+            
+            CurrencySaveData data = snapshot.ConvertTo<CurrencySaveData>();
+            if (data != null)
+            {
+                return data;
+            }
+            
+            return CurrencySaveData.Default;
         }
         catch (Exception e)
         {
